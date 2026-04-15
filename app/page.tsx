@@ -1,24 +1,13 @@
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Card from "./components/Card";
-import Image from "next/image";
 import Link from "next/link";
+import Header from "./components/Header";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
-          {/* LOGO */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Logo" width={70} height={70} />
-          </Link>
-
-          {/* NAVBAR */}
-          <Navbar />
-        </div>
-      </header>
+      
 
       {/* MAIN */}
       <main className="flex flex-col flex-1">
@@ -79,7 +68,7 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <Footer />
+      
     </div>
   );
 }
