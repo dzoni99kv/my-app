@@ -8,54 +8,76 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* HEADER */}
-      <header className="flex justify-between items-center p-2 absolute top-0 left-0 w-full z-10">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="Logo" width={100} height={100} />
-        </Link>
-        <Navbar />
-      </header>
-      {/* HERO SECTION */}
-      <section
-        className="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1503264116251-35a269479413')",
-        }}
-      >
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black bg-black/60"></div>
+      <header className="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+          {/* LOGO */}
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo.png" alt="Logo" width={70} height={70} />
+          </Link>
 
-        {/* CONTENT */}
-        <div className="relative z-10 text-white px-4">
-          <h2 className="text-5xl font-bold mb-6">
-            Profesionalne Usluge Gradnje
-          </h2>
-
-          <p className="text-lg text-gray-300 mb-10 max-w-xl mx-auto">
-            Kvalitet, pouzdanost i dugogodišnje iskustvo u građevinskim
-            radovima.
-          </p>
-
-          {/* CARDS */}
-          <div className="flex gap-3 flex-col md:flex-row">
-            <Card
-              title="Usluga 1"
-              description="Opis usluge 1"
-              imagePath="/images/slika1.jpg"
-            />
-            <Card
-              title="Usluga 2"
-              description="Opis usluge 2"
-              imagePath="/images/slika2.jpg"
-            />
-            <Card
-              title="Usluga 3"
-              description="Opis usluge 3"
-              imagePath="/images/slika3.jpg"
-            />
-          </div>
+          {/* NAVBAR */}
+          <Navbar />
         </div>
-      </section>
+      </header>
+
+      {/* MAIN */}
+      <main className="flex flex-col flex-1">
+        <section className="flex-1 flex flex-col justify-between items-center text-white relative pt-24 px-4">
+          {/* GIF BACKGROUND */}
+          <img
+            src="/images/VID_20200619_144350-ANIMATION.gif"
+            alt="Background"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          />
+          <div className="absolute inset-0 bg-black/60 z-0"></div>
+
+          <div className="relative z-10 text-center max-w-6xl w-full">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Profesionalne Usluge Gradnje
+            </h2>
+
+            <p className="text-lg text-gray-300 mb-10 max-w-xl mx-auto">
+              Kvalitet, pouzdanost i dugogodišnje iskustvo u građevinskim
+              radovima.
+            </p>
+
+            <div className="flex flex-wrap md:flex-nowrap gap-5 w-full">
+              <div className="flex-1 min-w-[250px]">
+                <Card
+                  title="Usluga 1"
+                  description="Opis usluge 1"
+                  imagePath="/images/slika1.jpg"
+                />
+              </div>
+              <div className="flex-1 min-w-[250px]">
+                <Card
+                  title="Usluga 2"
+                  description="Opis usluge 2"
+                  imagePath="/images/slika2.jpg"
+                />
+              </div>
+              <div className="flex-1 min-w-[250px]">
+                <Card
+                  title="Usluga 3"
+                  description="Opis usluge 3"
+                  imagePath="/images/slika3.jpg"
+                />
+              </div>
+            </div>
+
+            {/* ✅ MOVE BUTTON HERE */}
+            <div className="mt-10">
+              <Link
+                href="/usluge"
+                className="inline-flex items-center gap-2 bg-white text-black font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Pogledaj ceo katalog usluga →
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+
       {/* FOOTER */}
       <Footer />
     </div>

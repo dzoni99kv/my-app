@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="flex gap-8 text-white font-medium">
+    <nav className="flex items-center gap-6 text-white">
       <Link href="/" className="hover:text-gray-300 transition">
         Pocetna
       </Link>
