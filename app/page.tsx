@@ -25,7 +25,7 @@ export default function Home() {
         <section className="flex-1 flex flex-col justify-between items-center text-white relative pt-24 px-4">
           {/* GIF BACKGROUND */}
           <img
-            src="/images/VID_20200619_144350-ANIMATION.gif"
+            src="/images/bgslika.jpg"
             alt="Background"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
@@ -69,7 +69,7 @@ export default function Home() {
             <div className="mt-10">
               <Link
                 href="/usluge"
-                className="inline-flex items-center gap-2 bg-white text-black font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-orange-200 text-black font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-200"
               >
                 Pogledaj ceo katalog usluga →
               </Link>
