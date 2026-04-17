@@ -1,15 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   title: string;
   description: string;
   imagePath: string;
+  slug: string;
 };
 
-export default function Card({ title, description, imagePath }: Props) {
+export default function Card({ title, description, imagePath, slug }: Props) {
   return (
-    <a
-      href="#"
+    <Link
+      href={`/usluge/${slug}`}
       className="flex flex-col bg-[#f5f0e6] p-6 border border-black/10 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 h-full"
     >
       {/* IMAGE */}
@@ -38,6 +40,6 @@ export default function Card({ title, description, imagePath }: Props) {
           </button>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

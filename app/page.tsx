@@ -1,7 +1,5 @@
-import Footer from "./components/Footer";
 import Card from "./components/Card";
 import Link from "next/link";
-import Header from "./components/Header";
 
 export default function Home() {
   return (
@@ -36,6 +34,7 @@ export default function Home() {
                   title="Usluga 1"
                   description="Opis usluge 1"
                   imagePath="/images/slika1.jpg"
+                  slug="gradjevinski-radovi"
                 />
               </div>
               <div className="flex-1 min-w-[250px]">
@@ -43,6 +42,7 @@ export default function Home() {
                   title="Usluga 2"
                   description="Opis usluge 2"
                   imagePath="/images/slika2.jpg"
+                  slug="asfaltiranje"
                 />
               </div>
               <div className="flex-1 min-w-[250px]">
@@ -50,6 +50,7 @@ export default function Home() {
                   title="Usluga 3"
                   description="Opis usluge 3"
                   imagePath="/images/slika3.jpg"
+                  slug="betonski-radovi"
                 />
               </div>
             </div>
