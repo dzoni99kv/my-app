@@ -9,6 +9,11 @@ const images: string[] = [
   "/images/slika3.jpg",
   "/images/slika1.jpg",
   "/images/slika2.jpg",
+  "/images/slika1.jpg",
+  "/images/slika2.jpg",
+  "/images/slika3.jpg",
+  "/images/slika1.jpg",
+  "/images/slika2.jpg",
 ];
 
 export default function GalerijaPage() {
@@ -98,7 +103,7 @@ export default function GalerijaPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+    <div className="pb-10 min-h-screen flex flex-col bg-black text-white">
       <main className="flex-1 pt-24 px-6">
         <h1 className="text-3xl md:text-5xl font-bold mb-12 max-w-6xl mx-auto">
           Galerija radova
@@ -202,7 +207,7 @@ export default function GalerijaPage() {
                   e.stopPropagation();
                   setActiveIndex(null);
                 }}
-                className="absolute top-2 md:top-4 right-2 md:right-4 text-white text-2xl md:text-3xl cursor-pointer hover:scale-110 transition"
+                className="absolute bg-white/20 top-2 md:top-4 right-2 md:right-4 text-white text-2xl md:text-3xl cursor-pointer hover:scale-110 transition"
               >
                 ✕
               </button>
