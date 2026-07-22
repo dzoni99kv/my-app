@@ -1,0 +1,14 @@
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api";
+type Quote = { _id: string; name: string; email: string; service: string; message: string; status: "new" | "contacted" | "closed"; createdAt: string };
+export default function AdminPage() {
+  const [quotes, setQuotes] = useState<Quote[]>([]); const [state, setState] = useState<"loading" | "ready" | "forbidden" | "error">("loading");
+  useEffect(() => { void Promise.resolve().then(async () => { const token = localStorage.getItem("tvojaFirmaToken"); if (!token) { setState("forbidden"); return; } const response = await fetch(`${apiUrl}/quotes`, { headers: { Authorization: `Bearer ${token}` } }); if (response.status === 401 || response.status === 403) { setState("forbidden"); return; } if (!response.ok) throw new Error(); const data = await response.json(); setQuotes(data.quotes); setState("ready"); }).catch(() => setState("error")); }, []);
+  if (state === "loading") return <div className="p-16 text-center text-slate-600">Učitavanje upita...</div>;
+  if (state === "forbidden") return <div className="min-h-[calc(100vh-70px)] bg-stone-50 p-16 text-center"><h1 className="text-3xl font-semibold">Pristup nije dozvoljen</h1><p className="mt-4 text-slate-600">Ova stranica je dostupna samo administratoru.</p><Link href="/prijava" className="mt-6 inline-block rounded-full bg-slate-900 px-5 py-3 font-semibold text-white">Prijavite se</Link></div>;
+  if (state === "error") return <div className="p-16 text-center text-red-700">Upiti trenutno nisu dostupni. Pokušajte ponovo kasnije.</div>;
+  return <div className="min-h-[calc(100vh-70px)] bg-stone-50 px-6 py-14"><div className="mx-auto max-w-7xl"><p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-700">Administracija</p><h1 className="mt-3 text-4xl font-semibold text-slate-900">Upiti za ponudu</h1><p className="mt-3 text-slate-600">Ukupno: {quotes.length}</p><div className="mt-10 grid gap-5 lg:grid-cols-2">{quotes.length === 0 ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">Još nema upita za ponudu.</p> : quotes.map((quote) => <article key={quote._id} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200"><div className="flex flex-wrap items-start justify-between gap-3"><div><h2 className="text-lg font-semibold text-slate-900">{quote.name}</h2><a href={`mailto:${quote.email}`} className="text-sm text-orange-700">{quote.email}</a></div><span className="rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-800">{quote.status}</span></div><p className="mt-5 text-sm font-semibold text-slate-800">{quote.service}</p><p className="mt-2 leading-6 text-slate-600">{quote.message}</p><p className="mt-5 text-xs text-slate-400">{new Date(quote.createdAt).toLocaleString("sr-RS")}</p></article>)}</div></div></div>;
+}

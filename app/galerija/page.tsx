@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const images: string[] = [
   "/images/slika1.jpg",
@@ -23,7 +23,7 @@ export default function GalerijaPage() {
   const [direction, setDirection] = useState<"left" | "right" | null>(null);
   const [animating, setAnimating] = useState(false);
   // navigation
-  const next = () => {
+  const next = useCallback(() => {
     if (activeIndex === null || animating) return;
 
     setDirection("right");
@@ -35,9 +35,9 @@ export default function GalerijaPage() {
     });
 
     setTimeout(() => setAnimating(false), 400);
-  };
+  }, [activeIndex, animating]);
 
-  const prev = () => {
+  const prev = useCallback(() => {
     if (activeIndex === null || animating) return;
 
     setDirection("left");
@@ -49,7 +49,7 @@ export default function GalerijaPage() {
     });
 
     setTimeout(() => setAnimating(false), 400);
-  };
+  }, [activeIndex, animating]);
   useEffect(() => {
     if (activeIndex === null) return;
 
@@ -72,35 +72,7 @@ export default function GalerijaPage() {
     return () => {
       window.removeEventListener("keydown", handleKey);
     };
-  }, [activeIndex, animating]);
-  // swipe state
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-
-    if (distance > minSwipeDistance) {
-      next(); // swipe left
-    }
-
-    if (distance < -minSwipeDistance) {
-      prev(); // swipe right
-    }
-  };
+  }, [activeIndex, next, prev]);
 
   return (
     <div className="pb-10 min-h-screen flex flex-col bg-black text-white">

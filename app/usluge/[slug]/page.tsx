@@ -1,46 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { services } from "../../lib/services";
-
-export default async function ServicePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-
-  const service = services.find(
-    (s) => s.slug.toLowerCase() === slug.toLowerCase()
-  );
-
-  if (!service) {
-    return (
-      <div className="min-h-screen bg-[#121212] text-white flex items-center justify-center">
-        Usluga nije pronađena
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen flex flex-col bg-[#121212] text-[#e5e5e5]">
-      <main className="flex-1 pt-24 px-6 max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-5xl font-bold mb-6">
-          {service.title}
-        </h1>
-
-        <p className="text-gray-400 text-lg leading-relaxed mb-10">
-          {service.longDescription}
-        </p>
-
-        <div className="w-full h-80 bg-[#1e1e1e] rounded-xl mb-10"></div>
-
-        <div className="mt-10">
-          <a
-            href="/kontakt"
-            className="inline-block bg-white text-black px-6 py-3 rounded-lg font-semibold"
-          >
-            Kontaktirajte nas
-          </a>
-        </div>
-      </main>
-    </div>
-  );
-}
+export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const service = services.find((item) => item.slug === slug); if (!service) notFound(); return <div className="bg-stone-50 px-6 py-16 lg:px-8"><article className="mx-auto max-w-5xl"><Link href="/usluge" className="text-sm font-semibold text-orange-700 hover:text-orange-600">← Sve usluge</Link><div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-center"><div><p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-700">Usluga</p><h1 className="mt-3 text-5xl font-semibold tracking-tight text-slate-900">{service.title}</h1><p className="mt-6 text-lg leading-8 text-slate-600">{service.longDescription}</p><Link href="/kontakt" className="mt-8 inline-block rounded-full bg-slate-900 px-6 py-3 font-semibold text-white hover:bg-slate-700">Zatražite ponudu</Link></div><div className="relative h-[390px] overflow-hidden rounded-3xl"><Image src={service.image} alt={service.title} fill className="object-cover" /></div></div></article></div>; }

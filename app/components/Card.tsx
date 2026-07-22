@@ -1,45 +1,4 @@
 import Image from "next/image";
 import Link from "next/link";
-
-type Props = {
-  title: string;
-  description: string;
-  imagePath: string;
-  slug: string;
-};
-
-export default function Card({ title, description, imagePath, slug }: Props) {
-  return (
-    <Link
-      href={`/usluge/${slug}`}
-      className="flex flex-col bg-[#f5f0e6] p-6 border border-black/10 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 h-full"
-    >
-      {/* IMAGE */}
-      <div className="relative w-full h-48 mb-4">
-        <Image
-          src={imagePath}
-          alt="Service image"
-          fill
-          className="object-cover rounded-lg"
-        />
-      </div>
-
-      {/* CONTENT */}
-      <div className="flex flex-col flex-1 text-black">
-        {/* TEXT BLOCK */}
-        <div>
-          <h5 className="mb-2 text-xl font-bold break-words">{title}</h5>
-
-          <p className="mb-4 text-gray-700 text-sm">{description}</p>
-        </div>
-
-        {/* BUTTON (sticks to bottom) */}
-        <div className="mt-auto">
-          <button className="w-fit px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-gray-800 transition">
-            Pogledaj više →
-          </button>
-        </div>
-      </div>
-    </Link>
-  );
-}
+type Props = { title: string; description: string; imagePath: string; slug: string };
+export default function Card({ title, description, imagePath, slug }: Props) { return <Link href={`/usluge/${slug}`} className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-xl"><div className="relative h-56"><Image src={imagePath} alt={title} fill className="object-cover transition duration-500 group-hover:scale-105" /></div><div className="p-6"><h3 className="text-xl font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{description}</p><p className="mt-5 font-semibold text-orange-700">Saznajte više <span aria-hidden="true">→</span></p></div></Link>; }

@@ -1,57 +1,9 @@
-export type Service = {
-  slug: string;
-  title: string;
-  description: string;
-  longDescription: string;
-};
-
+export type Service = { slug: string; title: string; description: string; longDescription: string; image: string; };
 export const services: Service[] = [
-  {
-    slug: "gradjevinski-radovi",
-    title: "Građevinski radovi",
-    description:
-      "Izvodimo sve vrste građevinskih radova uz visok kvalitet i poštovanje rokova.",
-    longDescription:
-      "Pružamo kompletnu uslugu izgradnje objekata, od temelja do završnih radova. Radimo sa modernom opremom i kvalitetnim materijalima.",
-  },
-  {
-    slug: "asfaltiranje",
-    title: "Asfaltiranje",
-    description:
-      "Profesionalno asfaltiranje dvorišta, prilaza i puteva.",
-    longDescription:
-      "Specijalizovani smo za asfaltiranje dvorišta, parkinga i puteva uz dugotrajne i kvalitetne rezultate.",
-  },
-  {
-    slug: "renoviranje",
-    title: "Renoviranje objekata",
-    description:
-      "Kompletno renoviranje stanova i kuća.",
-    longDescription:
-      "Izvodimo kompletne renovacije enterijera i eksterijera sa pažnjom na detalje i želje klijenta.",
-  },
-  {
-    slug: "iskopi",
-    title: "Iskopi i priprema terena",
-    description:
-      "Priprema zemljišta za gradnju.",
-    longDescription:
-      "Vrši se iskop, nivelacija i priprema terena uz savremenu mehanizaciju.",
-  },
-  {
-    slug: "betonski-radovi",
-    title: "Betonski radovi",
-    description:
-      "Izrada temelja i konstrukcija.",
-    longDescription:
-      "Radimo sve vrste betonskih radova uključujući ploče, temelje i konstrukcije.",
-  },
-  {
-    slug: "fasade",
-    title: "Fasaderski radovi",
-    description:
-      "Kvalitetna izrada fasada.",
-    longDescription:
-      "Izrada fasada sa modernim materijalima koji obezbeđuju dugotrajnu zaštitu.",
-  },
+  { slug: "gradjevinski-radovi", title: "Građevinski radovi", description: "Izgradnja objekata uz kvalitetnu organizaciju i poštovanje rokova.", longDescription: "Vodimo radove od pripreme gradilišta do završnih detalja. Naš tim koordinira materijal, izvođenje i kontrolu kvaliteta kako bi svaki korak bio siguran i pregledan.", image: "/images/slika1.jpg" },
+  { slug: "asfaltiranje", title: "Asfaltiranje", description: "Profesionalno asfaltiranje prilaza, dvorišta, parkinga i puteva.", longDescription: "Izvodimo pripremu podloge, nivelaciju i ugradnju asfalta za površine koje izgledaju uredno i pouzdano služe godinama.", image: "/images/slika2.jpg" },
+  { slug: "renoviranje", title: "Renoviranje objekata", description: "Kompletno renoviranje stanova, kuća i poslovnih prostora.", longDescription: "Obnavljamo enterijere i eksterijere prema vašem budžetu i načinu života, uz pažljivo planiranje svih zanatskih radova.", image: "/images/IMG_20200920_124708.jpg" },
+  { slug: "iskopi", title: "Iskopi i priprema terena", description: "Priprema zemljišta za pouzdan početak gradnje.", longDescription: "Savremenom mehanizacijom obavljamo iskope, nivelaciju i pripremu terena za temelje, prilaze i infrastrukturne radove.", image: "/images/IMG_20200920_100704.jpg" },
+  { slug: "betonski-radovi", title: "Betonski radovi", description: "Izrada temelja, ploča i nosivih betonskih konstrukcija.", longDescription: "Radimo precizno armiranje, oplatu i betoniranje za konstrukcije kojima su stabilnost i dugovečnost najvažnije.", image: "/images/slika3.jpg" },
+  { slug: "fasade", title: "Fasaderski radovi", description: "Kvalitetne fasade koje štite i unapređuju izgled objekta.", longDescription: "Ugrađujemo fasadne sisteme i završne obrade koje poboljšavaju energetsku efikasnost i daju objektu čist, savremen izgled.", image: "/images/IMG_20200820_150511.jpg" },
 ];
