@@ -1,3 +1,3 @@
-export default function Usluge() {
-  return <h1>Usluge Page</h1>;
-}
+import Link from "next/link";
+import { services } from "../lib/services";
+export default function UslugePage() { return <div className="bg-stone-50 px-6 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><p className="text-sm font-semibold uppercase tracking-[0.18em] text-orange-700">Naše usluge</p><h1 className="mt-3 max-w-2xl text-5xl font-semibold tracking-tight text-slate-900">Čvrsta osnova za svaki sledeći korak.</h1><p className="mt-5 max-w-2xl leading-7 text-slate-600">Okupljamo iskusan tim i pouzdanu mehanizaciju za privatne i poslovne projekte svih obima.</p><div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{services.map((service, index) => <Link key={service.slug} href={`/usluge/${service.slug}`} className="group rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"><span className="text-sm font-semibold text-orange-700">0{index + 1}</span><h2 className="mt-7 text-xl font-semibold text-slate-900">{service.title}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{service.description}</p><p className="mt-7 font-semibold text-slate-900 group-hover:text-orange-700">Detalji usluge →</p></Link>)}</div></div></div>; }

@@ -1,7 +1,2 @@
-export default function Footer() {
-  return (
-    <footer className="bg-black text-white text-center p-4">
-      © 2026 Tvoja Firma
-    </footer>
-  );
-}
+import Link from "next/link";
+export default function Footer() { return <footer className="bg-slate-950 text-slate-300"><div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-3 lg:px-8"><div><p className="font-bold text-white">TVOJA FIRMA</p><p className="mt-3 max-w-xs text-sm leading-6">Profesionalni građevinski radovi izvedeni odgovorno, precizno i na vreme.</p></div><div><p className="font-semibold text-white">Navigacija</p><div className="mt-3 grid gap-2 text-sm"><Link href="/usluge" className="hover:text-orange-300">Usluge</Link><Link href="/galerija" className="hover:text-orange-300">Galerija</Link><Link href="/kontakt" className="hover:text-orange-300">Kontakt</Link></div></div><div><p className="font-semibold text-white">Kontakt</p><div className="mt-3 space-y-2 text-sm"><a href="tel:+381601234567" className="block hover:text-orange-300">+381 60 123 4567</a><a href="mailto:info@tvojafirma.rs" className="block hover:text-orange-300">info@tvojafirma.rs</a><p>Beograd, Srbija</p></div></div></div><div className="border-t border-white/10 py-5 text-center text-xs text-slate-500">© {new Date().getFullYear()} Tvoja Firma. Sva prava zadržana.</div></footer>; }
